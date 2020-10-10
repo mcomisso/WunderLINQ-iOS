@@ -97,10 +97,10 @@ class Logger {
                 default:
                     print("Unknown pressure unit setting")
                 }
-                if UserDefaults.standard.integer(forKey: "temperature_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.temperatureUnit.rawValue) == 1 {
                     temperatureUnit = "F"
                 }
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     distanceUnit = "mi"
                     altitudeUnit = "ft"
                     speedUnit = "mph"
@@ -136,7 +136,7 @@ class Logger {
             let longitude:String = "\(currentLocation.coordinate.longitude)"
             
             var altitude:String = "\(currentLocation.altitude)"
-            if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+            if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                 altitude = "\(Utility.mtoFeet(currentLocation.altitude))"
             }
             var gpsSpeed:String = "0"
@@ -144,7 +144,7 @@ class Logger {
                 gpsSpeed = "\(currentSpeed)"
                 let gpsSpeedValue:Double = currentSpeed
                 gpsSpeed = "\(gpsSpeedValue)"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     gpsSpeed = "\(Utility.kmToMiles(gpsSpeedValue))"
                 }
             }
@@ -156,7 +156,7 @@ class Logger {
             if motorcycleData.engineTemperature != nil {
                 let engineTempValue:Double = motorcycleData.engineTemperature!
                 engineTemp = "\(motorcycleData.engineTemperature!)"
-                if UserDefaults.standard.integer(forKey: "temperature_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.temperatureUnit.rawValue) == 1 {
                     engineTemp = "\(Utility.celciusToFahrenheit(engineTempValue))"
                 }
             }
@@ -164,7 +164,7 @@ class Logger {
             if motorcycleData.ambientTemperature != nil {
                 let ambientTempValue:Double = motorcycleData.ambientTemperature!
                 ambientTemp = "\(motorcycleData.ambientTemperature!)"
-                if UserDefaults.standard.integer(forKey: "temperature_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.temperatureUnit.rawValue) == 1 {
                     ambientTemp = "\(Utility.celciusToFahrenheit(ambientTempValue))"
                 }
             }
@@ -200,7 +200,7 @@ class Logger {
             if motorcycleData.odometer != nil {
                 let odometerValue:Double = motorcycleData.odometer!
                 odometer = "\(odometerValue)"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     odometer = "\(Utility.kmToMiles(odometerValue))"
                 }
                 
@@ -233,7 +233,7 @@ class Logger {
             if motorcycleData.tripOne != nil {
                 let tripOneValue:Double = motorcycleData.tripOne!
                 tripOne = "\(tripOneValue)"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     tripOne = "\(Utility.kmToMiles(tripOneValue))"
                 }
             }
@@ -241,7 +241,7 @@ class Logger {
             if motorcycleData.tripTwo != nil {
                 let tripTwoValue:Double = motorcycleData.tripTwo!
                 tripTwo = "\(tripTwoValue)"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     tripTwo = "\(Utility.kmToMiles(tripTwoValue))"
                 }
             }
@@ -249,7 +249,7 @@ class Logger {
             if motorcycleData.tripAuto != nil {
                 let tripAutoValue:Double = motorcycleData.tripAuto!
                 tripAuto = "\(tripAutoValue)"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     tripAuto = "\(Utility.kmToMiles(tripAutoValue))"
                 }
             }
@@ -261,7 +261,7 @@ class Logger {
             if motorcycleData.speed != nil {
                 let speedValue:Double = motorcycleData.speed!
                 speed = "\(speedValue)"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     speed = "\(Utility.kmToMiles(speedValue))"
                 }
             }
@@ -269,7 +269,7 @@ class Logger {
             if motorcycleData.averageSpeed != nil {
                 let avgSpeedValue:Double = motorcycleData.averageSpeed!
                 avgSpeed = "\(avgSpeedValue)"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     avgSpeed = "\(Utility.kmToMiles(avgSpeedValue))"
                 }
             }
@@ -308,7 +308,7 @@ class Logger {
                 fuelEconomyTwo = "\(motorcycleData.fuelEconomyTwo!)"
                 let fuelEconomyTwoValue:Double = motorcycleData.fuelEconomyTwo!
                 fuelEconomyTwo = "\(fuelEconomyTwoValue)"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     fuelEconomyTwo = "\(Utility.l100ToMpg(fuelEconomyTwoValue))"
                 }
                 switch UserDefaults.standard.integer(forKey: "consumption_unit_preference"){
@@ -326,7 +326,7 @@ class Logger {
             if motorcycleData.fuelRange != nil {
                 let fuelRangeValue:Double = motorcycleData.fuelRange!
                 fuelRange = "\(fuelRangeValue)"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     fuelRange = "\(Utility.kmToMiles(fuelRangeValue))"
                 }
             }

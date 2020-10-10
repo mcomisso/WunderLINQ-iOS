@@ -11,4 +11,7 @@ enum UserPreferences: String {
     case navApp = "nav_app_preference"
     case darkMode = "darkmode_preference"
     case displayBrightness = "display_brightness_preference"
+
+    case temperatureUnit = "temperature_unit_preference"
+    case distanceUnit = "distance_unit_preference"
 }

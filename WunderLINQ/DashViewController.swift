@@ -262,7 +262,7 @@ class DashViewController: UIViewController, UIWebViewDelegate {
         //Speed
         if motorcycleData.speed != nil {
             var speedValue = motorcycleData.speed!
-            if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+            if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                 speedValue = Utility.kmToMiles(speedValue)
                 distanceTimeUnit = "MPH"
                 xml[0][4][10][1]["text"]?["tspan"]?.text = distanceTimeUnit
@@ -291,7 +291,7 @@ class DashViewController: UIViewController, UIWebViewDelegate {
             if(ambientTemp <= 0){
                 //icon = (UIImage(named: "Snowflake")?.withRenderingMode(.alwaysTemplate))!
             }
-            if UserDefaults.standard.integer(forKey: "temperature_unit_preference") == 1 {
+            if UserDefaults.standard.integer(forKey: UserPreferences.temperatureUnit.rawValue) == 1 {
                 temperatureUnit = "F"
                 ambientTemp = Utility.celciusToFahrenheit(ambientTemp)
             }
@@ -310,7 +310,7 @@ class DashViewController: UIViewController, UIWebViewDelegate {
                 let modString = regex.stringByReplacingMatches(in: style, options: [], range: range, withTemplate: "fill:#e20505;")
                 xml[0][4][11][3]["tspan"]?.attributes["style"] = modString
             }
-            if (UserDefaults.standard.integer(forKey: "temperature_unit_preference") == 1 ){
+            if (UserDefaults.standard.integer(forKey: UserPreferences.temperatureUnit.rawValue) == 1 ){
                 temperatureUnit = "F"
                 engineTemp = Utility.celciusToFahrenheit(engineTemp)
             }
@@ -322,7 +322,7 @@ class DashViewController: UIViewController, UIWebViewDelegate {
         var fuelRangeValue = "-"
         if motorcycleData.fuelRange != nil {
             var fuelRange:Double = motorcycleData.fuelRange!
-            if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+            if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                 distanceUnit = "mls"
                 fuelRange = Utility.kmToMiles(fuelRange)
             }

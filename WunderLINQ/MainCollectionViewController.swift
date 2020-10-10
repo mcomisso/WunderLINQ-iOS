@@ -1021,10 +1021,10 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
         default:
             print("Unknown pressure unit setting")
         }
-        if UserDefaults.standard.integer(forKey: "temperature_unit_preference") == 1 {
+        if UserDefaults.standard.integer(forKey: UserPreferences.temperatureUnit.rawValue) == 1 {
             temperatureUnit = "F"
         }
-        if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+        if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
             distanceUnit = "mi"
             distanceTimeUnit = "mph"
             heightUnit = "ft"
@@ -1430,7 +1430,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
                 if (engineTemp >= 104.0){
                     icon = icon.imageWithColor(color1: UIColor.red)
                 }
-                if (UserDefaults.standard.integer(forKey: "temperature_unit_preference") == 1 ){
+                if (UserDefaults.standard.integer(forKey: UserPreferences.temperatureUnit.rawValue) == 1 ){
                     engineTemp = Utility.celciusToFahrenheit(engineTemp)
                 }
                 value = "\(engineTemp.rounded(toPlaces: 1))"
@@ -1445,7 +1445,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
                 if(ambientTemp <= 0){
                     icon = (UIImage(named: "Snowflake")?.withRenderingMode(.alwaysTemplate))!
                 }
-                if UserDefaults.standard.integer(forKey: "temperature_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.temperatureUnit.rawValue) == 1 {
                     ambientTemp = Utility.celciusToFahrenheit(ambientTemp)
                 }
                 value = "\(ambientTemp.rounded(toPlaces: 1))"
@@ -1509,7 +1509,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
             icon = (UIImage(named: "Odometer")?.withRenderingMode(.alwaysTemplate))!
             if motorcycleData.odometer != nil {
                 var odometer:Double = motorcycleData.odometer!
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     odometer = Double(Utility.kmToMiles(Double(odometer)))
                 }
                 value = "\(Int(odometer))"
@@ -1561,7 +1561,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
             icon = (UIImage(named: "Suitcase")?.withRenderingMode(.alwaysTemplate))!
             if motorcycleData.tripOne != nil {
                 var tripOne:Double = motorcycleData.tripOne!
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     tripOne = Double(Utility.kmToMiles(Double(tripOne)))
                 }
                 value = "\(tripOne.rounded(toPlaces: 1))"
@@ -1573,7 +1573,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
             icon = (UIImage(named: "Suitcase")?.withRenderingMode(.alwaysTemplate))!
             if motorcycleData.tripTwo != nil {
                 var tripTwo:Double = motorcycleData.gettripTwo()
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     tripTwo = Double(Utility.kmToMiles(Double(tripTwo)))
                 }
                 value = "\(tripTwo.rounded(toPlaces: 1))"
@@ -1585,7 +1585,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
             icon = (UIImage(named: "Suitcase")?.withRenderingMode(.alwaysTemplate))!
             if motorcycleData.tripAuto != nil {
                 var tripAuto:Double = motorcycleData.gettripAuto()
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     tripAuto = Double(Utility.kmToMiles(Double(tripAuto)))
                 }
                 value = "\(tripAuto.rounded(toPlaces: 1))"
@@ -1598,7 +1598,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
             if motorcycleData.speed != nil {
                 let speedValue = motorcycleData.speed!
                 value = "\(Int(speedValue))"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     value = "\(Int(round(Utility.kmToMiles(speedValue))))"
                 }
             } else {
@@ -1610,7 +1610,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
             if motorcycleData.averageSpeed != nil {
                 let avgSpeedValue:Double = motorcycleData.averageSpeed!
                 value = "\(Int(avgSpeedValue))"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     value = "\(Int(round(Utility.kmToMiles(avgSpeedValue))))"
                 }
             } else {
@@ -1679,7 +1679,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
             if motorcycleData.fuelRange != nil {
                 let fuelRangeValue:Double = motorcycleData.fuelRange!
                 value = "\(Int(fuelRangeValue))"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     value = "\(Int(round(Utility.kmToMiles(fuelRangeValue))))"
                 }
             } else {
@@ -1761,7 +1761,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
                     gpsSpeed = "\(motorcycleData.location!.speed * 3.6)"
                     let gpsSpeedValue:Double = motorcycleData.location!.speed * 3.6
                     gpsSpeed = "\(Int(round(gpsSpeedValue)))"
-                    if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                    if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                         gpsSpeed = "\(Int(round(Utility.kmToMiles(gpsSpeedValue))))"
                     }
                     value = gpsSpeed
@@ -1773,7 +1773,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
             if motorcycleData.location != nil {
                 //value = "\(motorcycleData.barometricPressure!.rounded(toPlaces: 2))"
                 var altitude:String = "\(Int(round(motorcycleData.location!.altitude)))"
-                if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+                if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                     altitude = "\(Int(round(Utility.mtoFeet(motorcycleData.location!.altitude))))"
                 }
                 value = altitude

@@ -305,12 +305,12 @@ class TripViewController: UIViewController {
         // TODO: read from CSV header
         var distanceUnit : String = "km"
         var speedUnit : String = "km/h"
-        if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+        if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
             distanceUnit = "mi"
             speedUnit = "mi/h"
         }
         var temperatureUnit : String = "C";
-        if UserDefaults.standard.integer(forKey: "temperature_unit_preference") == 1 {
+        if UserDefaults.standard.integer(forKey: UserPreferences.temperatureUnit.rawValue) == 1 {
             // F
             temperatureUnit = "F";
         }
@@ -321,7 +321,7 @@ class TripViewController: UIViewController {
                 avgSpeed = avgSpeed + speed
             }
             avgSpeed = avgSpeed / Double((speeds.count))
-            if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+            if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                 avgSpeed = Utility.kmToMiles(avgSpeed)
                 maxSpeed = Utility.kmToMiles(maxSpeed)
             }
@@ -338,7 +338,7 @@ class TripViewController: UIViewController {
                 avgEngineTemp = avgEngineTemp + engineTemp
             }
             avgEngineTemp = avgEngineTemp / Double((ambientTemps.count))
-            if UserDefaults.standard.integer(forKey: "temperature_unit_preference") == 1 {
+            if UserDefaults.standard.integer(forKey: UserPreferences.temperatureUnit.rawValue) == 1 {
                 // F
                 minEngineTemp = Utility.celciusToFahrenheit(minEngineTemp!)
                 avgEngineTemp = Utility.celciusToFahrenheit(avgEngineTemp)
@@ -357,7 +357,7 @@ class TripViewController: UIViewController {
                 avgAmbientTemp = avgAmbientTemp + ambientTemp
             }
             avgAmbientTemp = avgAmbientTemp / Double(ambientTemps.count)
-            if UserDefaults.standard.integer(forKey: "temperature_unit_preference") == 1 {
+            if UserDefaults.standard.integer(forKey: UserPreferences.temperatureUnit.rawValue) == 1 {
                 // F
                 minAmbientTemp = Utility.celciusToFahrenheit(minAmbientTemp!)
                 avgAmbientTemp = Utility.celciusToFahrenheit(avgAmbientTemp)
@@ -374,7 +374,7 @@ class TripViewController: UIViewController {
         var distance: Double = 0
         if (endOdometer != nil && startOdometer != nil) {
             distance = endOdometer! - startOdometer!
-            if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+            if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                 distance = Utility.kmToMiles(distance.rounded(toPlaces: 1))
             }
         }

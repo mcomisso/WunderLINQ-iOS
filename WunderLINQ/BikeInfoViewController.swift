@@ -131,7 +131,7 @@ class BikeInfoViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             nextServiceDateLabel.text = formatter.string(from: motorcycleData.getNextServiceDate())
         }
         if (motorcycleData.nextService != nil){
-            if UserDefaults.standard.integer(forKey: "distance_unit_preference") == 1 {
+            if UserDefaults.standard.integer(forKey: UserPreferences.distanceUnit.rawValue) == 1 {
                 nextServiceLabel.text = "\(Int(round(Utility.kmToMiles(Double(motorcycleData.getNextService())))))(mi)"
             } else {
                 nextServiceLabel.text = "\(motorcycleData.getNextService())(km)"
