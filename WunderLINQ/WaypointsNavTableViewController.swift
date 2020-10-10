@@ -59,7 +59,7 @@ class WaypointsNavTableViewController: UITableViewController, CLLocationManagerD
                 self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.textLabel?.backgroundColor = UIColor(named: "backgrounds")!
                 self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.textLabel?.textColor = UIColor(named: "imageTint")!
             } else {
-                switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+                switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
                 case 0:
                     //OFF
                     self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.contentView.backgroundColor = UIColor.white
@@ -90,7 +90,7 @@ class WaypointsNavTableViewController: UITableViewController, CLLocationManagerD
                 self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.textLabel?.backgroundColor = UIColor(named: "backgrounds")!
                 self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.textLabel?.textColor = UIColor(named: "imageTint")!
             } else {
-                switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+                switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
                 case 0:
                     //OFF
                     self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.contentView.backgroundColor = UIColor.white
@@ -124,7 +124,7 @@ class WaypointsNavTableViewController: UITableViewController, CLLocationManagerD
                 self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.textLabel?.backgroundColor = UIColor(named: "backgrounds")!
                 self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.textLabel?.textColor = UIColor(named: "imageTint")!
             } else {
-                switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+                switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
                 case 0:
                     //OFF
                     self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.contentView.backgroundColor = UIColor.white
@@ -154,7 +154,7 @@ class WaypointsNavTableViewController: UITableViewController, CLLocationManagerD
                     self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.textLabel?.backgroundColor = UIColor(named: "backgrounds")!
                     self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.textLabel?.textColor = UIColor(named: "imageTint")!
                 } else {
-                    switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+                    switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
                     case 0:
                         //OFF
                         self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.contentView.backgroundColor = UIColor.white
@@ -185,7 +185,7 @@ class WaypointsNavTableViewController: UITableViewController, CLLocationManagerD
                     self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.textLabel?.backgroundColor = UIColor(named: "backgrounds")!
                     self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.textLabel?.textColor = UIColor(named: "imageTint")!
                 } else {
-                    switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+                    switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
                     case 0:
                         //OFF
                         self.tableView.cellForRow(at: IndexPath(row: itemRow, section: 0) as IndexPath)?.contentView.backgroundColor = UIColor.white
@@ -234,7 +234,7 @@ class WaypointsNavTableViewController: UITableViewController, CLLocationManagerD
             highlightColor = UIColor(named: "accent")
         }
 
-        switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+        switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
         case 0:
             //OFF
             if #available(iOS 13.0, *) {
@@ -286,7 +286,7 @@ class WaypointsNavTableViewController: UITableViewController, CLLocationManagerD
         self.navigationItem.title = NSLocalizedString("waypoints_nav_title", comment: "")
         self.navigationItem.leftBarButtonItems = [backButton]
         
-        if UserDefaults.standard.bool(forKey: "display_brightness_preference") {
+        if UserDefaults.standard.bool(forKey: UserPreferences.displayBrightness.rawValue) {
             UIScreen.main.brightness = CGFloat(1.0)
         } else {
             UIScreen.main.brightness = CGFloat(UserDefaults.standard.float(forKey: "systemBrightness"))
@@ -362,7 +362,7 @@ class WaypointsNavTableViewController: UITableViewController, CLLocationManagerD
             cell.textLabel?.backgroundColor = UIColor(named: "backgrounds")!
             cell.textLabel?.textColor = UIColor(named: "imageTint")!
         } else {
-            switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+            switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
             case 0:
                 //OFF
                 cell.contentView.backgroundColor = UIColor.white

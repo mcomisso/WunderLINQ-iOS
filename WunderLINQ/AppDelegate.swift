@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             GMSServices.provideAPIKey(Secrets.google_maps_api_key)
             // Override point for customization after application launch.
             
-            switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+        switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
             case 0:
                 //OFF
                 if #available(iOS 13.0, *) {

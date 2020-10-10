@@ -131,7 +131,7 @@ class NavAppHelper {
     }
 
     func open() {
-        let navAppValue = UserDefaults.standard.integer(forKey: "nav_app_preference")
+        let navAppValue = UserDefaults.standard.integer(forKey: UserPreferences.navApp.rawValue)
         guard let navApp = NavigationAppPreference(rawValue: navAppValue) else {
             openAppleMaps()
             return
@@ -143,7 +143,7 @@ class NavAppHelper {
 
 extension NavAppHelper {
     class func navigateTo(destLatitude: Double, destLongitude: Double, destLabel: String?, currentLatitude: Double, currentLongitude: Double) {
-        let navAppValue = UserDefaults.standard.integer(forKey: "nav_app_preference")
+        let navAppValue = UserDefaults.standard.integer(forKey: UserPreferences.navApp.rawValue)
         guard let navApp = NavigationAppPreference(rawValue: navAppValue) else { return }
 
         switch navApp {
@@ -273,7 +273,7 @@ extension NavAppHelper {
     }
     
     class func viewWaypoint(destLatitude: Double, destLongitude: Double, destLabel: String?) {
-        let navApp = UserDefaults.standard.integer(forKey: "nav_app_preference")
+        let navApp = UserDefaults.standard.integer(forKey: UserPreferences.navApp.rawValue)
         print("Open NavApp: \(navApp)")
         switch (navApp){
         case 0:

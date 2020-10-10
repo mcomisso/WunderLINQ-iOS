@@ -38,7 +38,7 @@ class MusicViewController: UIViewController, SPTAppRemotePlayerStateDelegate {
     let pauseImage = UIImage(named: "playback_pause")
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
-        switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+        switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
         case 0:
             //OFF
             return .default
@@ -62,7 +62,7 @@ class MusicViewController: UIViewController, SPTAppRemotePlayerStateDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+        switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
         case 0:
             //OFF
             if #available(iOS 13.0, *) {
@@ -133,7 +133,7 @@ class MusicViewController: UIViewController, SPTAppRemotePlayerStateDelegate {
         self.navigationItem.leftBarButtonItems = [backButton]
         self.navigationItem.rightBarButtonItems = [forwardButton]
 
-        if UserDefaults.standard.bool(forKey: "display_brightness_preference") {
+        if UserDefaults.standard.bool(forKey: UserPreferences.displayBrightness.rawValue) {
             UIScreen.main.brightness = CGFloat(1.0)
         } else {
             UIScreen.main.brightness = CGFloat(UserDefaults.standard.float(forKey: "systemBrightness"))

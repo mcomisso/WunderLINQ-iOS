@@ -49,7 +49,7 @@ class AlertViewController: UIViewController {
         switch (ID){
         case 1:
             //Navigation
-            let navApp = UserDefaults.standard.integer(forKey: "nav_app_preference")
+            let navApp = UserDefaults.standard.integer(forKey: UserPreferences.navApp.rawValue)
             switch (navApp){
             case 0:
                 //Apple Maps
@@ -114,7 +114,7 @@ class AlertViewController: UIViewController {
         switch (ID){
         case 1:
             //Navigation
-            let navApp = UserDefaults.standard.integer(forKey: "nav_app_preference")
+            let navApp = UserDefaults.standard.integer(forKey: UserPreferences.navApp.rawValue)
             switch (navApp){
             case 0:
                 //Apple Maps
@@ -178,7 +178,7 @@ class AlertViewController: UIViewController {
         if #available(iOS 13.0, *) {
             
         } else {
-            switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+            switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
             case 0:
                 //OFF
                 Theme.default.apply()
@@ -212,7 +212,7 @@ class AlertViewController: UIViewController {
         swipeRight.direction = .right
         self.view.addGestureRecognizer(swipeRight)
         
-        if UserDefaults.standard.bool(forKey: "display_brightness_preference") {
+        if UserDefaults.standard.bool(forKey: UserPreferences.displayBrightness.rawValue) {
             UIScreen.main.brightness = CGFloat(1.0)
         } else {
             UIScreen.main.brightness = CGFloat(UserDefaults.standard.float(forKey: "systemBrightness"))

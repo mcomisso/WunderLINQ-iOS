@@ -95,6 +95,7 @@
 		7EFA9908240DFDE700E65078 /* FirstRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFA9907240DFDE700E65078 /* FirstRunViewController.swift */; };
 		B98CA75D252E6C6B00530075 /* UIStoryboard+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98CA75C252E6C6B00530075 /* UIStoryboard+extensions.swift */; };
 		B98CA762252E6F5500530075 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98CA761252E6F5500530075 /* String+Localizable.swift */; };
+		B98CA8132531CF2700530075 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98CA8122531CF2700530075 /* UserPreferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +233,7 @@
 		7EFA9907240DFDE700E65078 /* FirstRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunViewController.swift; sourceTree = "<group>"; };
 		B98CA75C252E6C6B00530075 /* UIStoryboard+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+extensions.swift"; sourceTree = "<group>"; };
 		B98CA761252E6F5500530075 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		B98CA8122531CF2700530075 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		DA150AA674E4880933A5281B /* Pods_WunderLINQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WunderLINQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -399,6 +401,7 @@
 				7E2EC06324991CE200B0A59B /* NavigationControllerWithTraitOverride.swift */,
 				7E6E0A6724FC022200149387 /* ColorPickerViewController.swift */,
 				7E4669F62518647C00E7E291 /* NavAppHelper.swift */,
+				B98CA8122531CF2700530075 /* UserPreferences.swift */,
 				7EB5ED7C251FE8FA00B61160 /* DashViewController.swift */,
 				7EB5EE112523C57100B61160 /* XML.swift */,
 				7EB8B99D245CA7A6007232D2 /* Secrets.swift */,
@@ -675,6 +678,7 @@
 				7E6987DB20F82F1A00B4781D /* MotorcycleData.swift in Sources */,
 				7E068BCB2102ACF30076EAAD /* Popover.swift in Sources */,
 				7EAF646A22FE261D00B11550 /* WeatherMapViewController.swift in Sources */,
+				B98CA8132531CF2700530075 /* UserPreferences.swift in Sources */,
 				7EA478811F44F57C000CEDDC /* MusicViewController.swift in Sources */,
 				7EF9B5A022FCB14D009D8D17 /* Solar.swift in Sources */,
 				7EAF646822FE17D000B11550 /* BikeInfoViewController.swift in Sources */,

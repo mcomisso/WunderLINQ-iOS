@@ -34,7 +34,7 @@ class DashViewController: UIViewController, UIWebViewDelegate {
     var isTimerRunning = false
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
-        switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+        switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
         case 0:
             //OFF
             return .default
@@ -64,7 +64,7 @@ class DashViewController: UIViewController, UIWebViewDelegate {
         let value = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
         
-        switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+        switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
         case 0:
             //OFF
             if #available(iOS 13.0, *) {
@@ -135,7 +135,7 @@ class DashViewController: UIViewController, UIWebViewDelegate {
         self.navigationItem.leftBarButtonItems = [backButton]
         self.navigationItem.rightBarButtonItems = [forwardButton]
 
-        if UserDefaults.standard.bool(forKey: "display_brightness_preference") {
+        if UserDefaults.standard.bool(forKey: UserPreferences.displayBrightness.rawValue) {
             UIScreen.main.brightness = CGFloat(1.0)
         } else {
             UIScreen.main.brightness = CGFloat(UserDefaults.standard.float(forKey: "systemBrightness"))

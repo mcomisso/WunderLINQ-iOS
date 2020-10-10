@@ -29,7 +29,7 @@ extension UIViewController {
             toastLabel.backgroundColor = UIColor(named: "imageTint")
             toastLabel.textColor = UIColor(named: "backgrounds")
         } else {
-            switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+            switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
             case 0:
                 //OFF
                 toastLabel.backgroundColor = UIColor.black

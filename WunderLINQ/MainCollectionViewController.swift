@@ -167,7 +167,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
     }
 
     override var preferredStatusBarStyle : UIStatusBarStyle {
-        switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+        switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
         case 0:
             //OFF
             if(self.navigationController?.isToolbarHidden ?? false){
@@ -232,7 +232,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
         registerSettingsBundle()
         NotificationCenter.default.addObserver(self, selector: #selector(self.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
         
-        switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+        switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
         case 0:
             //OFF
             if #available(iOS 13.0, *) {
@@ -266,7 +266,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
             }
         }
         
-        if UserDefaults.standard.bool(forKey: "display_brightness_preference") {
+        if UserDefaults.standard.bool(forKey: UserPreferences.displayBrightness.rawValue) {
             UIScreen.main.brightness = CGFloat(1.0)
         } else {
             UIScreen.main.brightness = CGFloat(UserDefaults.standard.float(forKey: "systemBrightness"))
@@ -819,7 +819,7 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
         if #available(iOS 13.0, *) {
             //Nothing to do
         } else {
-            switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+            switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
             case 0:
                 //OFF
                 cell.setColors(backgroundColor: .white, textColor: .black)
@@ -3383,12 +3383,12 @@ class MainCollectionViewController: UIViewController, UICollectionViewDataSource
     
     @objc func defaultsChanged(notification:NSNotification){
         if let defaults = notification.object as? UserDefaults {
-            if defaults.integer(forKey: "darkmode_lastSet") != defaults.integer(forKey: "darkmode_preference"){
-                UserDefaults.standard.set(defaults.integer(forKey: "darkmode_preference"), forKey: "darkmode_lastSet")
+            if defaults.integer(forKey: "darkmode_lastSet") != defaults.integer(forKey: UserPreferences.darkMode.rawValue){
+                UserDefaults.standard.set(defaults.integer(forKey: UserPreferences.darkMode.rawValue), forKey: "darkmode_lastSet")
                 // quit app
                 exit(0)
             }
-            if UserDefaults.standard.bool(forKey: "display_brightness_preference") {
+            if UserDefaults.standard.bool(forKey: UserPreferences.displayBrightness.rawValue) {
                 UIScreen.main.brightness = CGFloat(1.0)
             } else {
                 UIScreen.main.brightness = CGFloat(UserDefaults.standard.float(forKey: "systemBrightness"))
@@ -3960,7 +3960,7 @@ extension MainCollectionViewController: UITableViewDataSource {
 
 extension UINavigationController {
     open override var preferredStatusBarStyle: UIStatusBarStyle {
-        switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+        switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
         case 0:
             //OFF
             return .default

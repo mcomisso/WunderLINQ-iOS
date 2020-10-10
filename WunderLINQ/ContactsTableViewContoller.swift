@@ -182,7 +182,7 @@ class ContactsTableViewController: UITableViewController {
         if #available(iOS 13.0, *) {
             
         } else {
-            switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+            switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
             case 0:
                 //OFF
                 Theme.default.apply()
@@ -219,7 +219,7 @@ class ContactsTableViewController: UITableViewController {
         self.navigationItem.title = NSLocalizedString("contactlist_title", comment: "")
         self.navigationItem.leftBarButtonItems = [backButton]
         
-        if UserDefaults.standard.bool(forKey: "display_brightness_preference") {
+        if UserDefaults.standard.bool(forKey: UserPreferences.displayBrightness.rawValue) {
             UIScreen.main.brightness = CGFloat(1.0)
         } else {
             UIScreen.main.brightness = CGFloat(UserDefaults.standard.float(forKey: "systemBrightness"))
@@ -263,7 +263,7 @@ class ContactsTableViewController: UITableViewController {
             if #available(iOS 13.0, *) {
                 cell.removeHighlight(color: UIColor(named: "backgrounds")!)
             } else {
-                switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+                switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
                 case 0:
                     //OFF
                     cell.removeHighlight(color: UIColor.white)
@@ -286,7 +286,7 @@ class ContactsTableViewController: UITableViewController {
         if #available(iOS 13.0, *) {
             cell.contactImage.tintColor = UIColor(named: "imageTint")
         } else {
-            switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+            switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
             case 0:
                 //OFF
                 cell.contactImage.tintColor = UIColor.black

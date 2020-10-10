@@ -124,7 +124,7 @@ class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate
         self.navigationItem.title = NSLocalizedString("about_title", comment: "")
         self.navigationItem.leftBarButtonItems = [backButton]
         
-        if UserDefaults.standard.bool(forKey: "display_brightness_preference") {
+        if UserDefaults.standard.bool(forKey: UserPreferences.displayBrightness.rawValue) {
             UIScreen.main.brightness = CGFloat(1.0)
         } else {
             UIScreen.main.brightness = CGFloat(UserDefaults.standard.float(forKey: "systemBrightness"))

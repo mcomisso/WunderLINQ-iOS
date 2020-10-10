@@ -60,7 +60,7 @@ class TaskCollectionViewCell: UICollectionViewCell {
         if #available(iOS 13.0, *) {
             taskImage.tintColor = UIColor(named: "imageTint")
         } else {
-            switch(UserDefaults.standard.integer(forKey: "darkmode_preference")){
+            switch(UserDefaults.standard.integer(forKey: UserPreferences.darkMode.rawValue)){
             case 0:
                 //OFF
                 taskImage.tintColor = UIColor.black
